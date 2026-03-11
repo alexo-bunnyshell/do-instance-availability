@@ -1,0 +1,22 @@
+kind: Environment
+name: do-availability
+type: primary
+
+components:
+  - kind: Application
+    name: dashboard
+    gitRepo: 'https://github.com/alexo-bunnyshell/do-instance-availability.git'
+    gitBranch: main
+    gitApplicationPath: /
+    dockerCompose:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      environment:
+        DIGITAL_OCEAN_TOKEN: 'ENCRYPTED[kyLqXcT5XsZ2AOZXcit6p18nXoFRfGSTZ5mf4lHPeSnK8sFiaAxP56TZz1I1mAuGu8arxWYgPR7uJ/JOCvWMXlz97tNZyBEY8WriLhfZIARGQb6W+HDkDWh4E7xA5utyJS1m4pWRNm5jNm1j]'
+      ports:
+        - '80:80'
+    hosts:
+      - hostname: 'do-avail-{{ env.base_domain }}'
+        path: /
+        servicePort: 80
