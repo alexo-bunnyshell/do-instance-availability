@@ -19,6 +19,6 @@ RUN echo "*/30 * * * * cd /app && python3 check_availability.py >> /var/log/chec
 
 RUN mkdir -p /app/data /var/www/html
 
-EXPOSE 80
+EXPOSE 8080
 
 ENTRYPOINT ["/entrypoint.sh"]

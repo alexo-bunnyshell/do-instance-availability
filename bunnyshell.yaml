@@ -15,8 +15,8 @@ components:
       environment:
         DIGITAL_OCEAN_TOKEN: 'ENCRYPTED[kyLqXcT5XsZ2AOZXcit6p18nXoFRfGSTZ5mf4lHPeSnK8sFiaAxP56TZz1I1mAuGu8arxWYgPR7uJ/JOCvWMXlz97tNZyBEY8WriLhfZIARGQb6W+HDkDWh4E7xA5utyJS1m4pWRNm5jNm1j]'
       ports:
-        - '80:80'
+        - '8080:8080'
     hosts:
       - hostname: 'do-avail-{{ env.base_domain }}'
         path: /
-        servicePort: 80
+        servicePort: 8080
