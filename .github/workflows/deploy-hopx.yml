@@ -1,0 +1,23 @@
+name: Deploy to HopX Sandbox
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install hopx-ai requests python-dotenv
+
+      - name: Deploy to HopX Sandbox
+        env:
+          HOPX_API_KEY: ${{ secrets.HOPX_API_KEY }}
+          DIGITAL_OCEAN_TOKEN: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
+        run: python deploy_sandbox.py
