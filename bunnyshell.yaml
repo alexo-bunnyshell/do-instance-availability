@@ -20,3 +20,6 @@ components:
       - hostname: 'do-avail-{{ env.base_domain }}'
         path: /
         servicePort: 8080
+        k8s:
+          ingress:
+            className: nginx
